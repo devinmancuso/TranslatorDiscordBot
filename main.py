@@ -62,8 +62,13 @@ async def translate(ctx,*args):
 	response = requests.get(url, headers)
 	responseJSON = response.json()
 	try:
-		result = responseJSON['translations'][0]['text']
-		print("Translated output: ", result)
+		print('response: 👉️', responseJSON)  # response: 👉️ <Response [204]>
+		print('response.text: 👉️', responseJSON.text)  # response.text: 👉️ ""
+		# response.status_code: 👉️ 204
+		print('response.status_code: 👉️', responseJSON.status_code)
+		print('response.headers: 👉️', responseJSON.headers)
+		#result = responseJSON['translations'][0]['text']
+		#print("Translated output: ", result)
 		#await ctx.reply(result)
 		#log(user, server, channel, source_lang, target_lang, translateMe, result)
 	except:
