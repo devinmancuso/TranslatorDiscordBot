@@ -7,7 +7,7 @@ from discord.ext import commands
 from datetime import datetime, timedelta
 
 # Set intents - see: https://discordpy.readthedocs.io/en/stable/intents.html
-intents = discord.Intents.default()
+intents = commands.Intents.default()
 intents.members = True
 
 bot = commands.Bot(
