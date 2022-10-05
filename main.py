@@ -63,7 +63,7 @@ async def translate(ctx,*args):
 	responseJSON = response.json()
 	try:
 		print('response: 👉️', responseJSON)  # response: 👉️ <Response [204]>
-		print('response.text: 👉️', responseJSON.text)  # response.text: 👉️ ""
+		#print('response.text: 👉️', responseJSON.text)  # response.text: 👉️ ""
 		# response.status_code: 👉️ 204
 		print('response.status_code: 👉️', responseJSON.status_code)
 		print('response.headers: 👉️', responseJSON.headers)
