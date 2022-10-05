@@ -67,10 +67,18 @@ async def translate(ctx,*args):
 		# response.status_code: 👉️ 204
 		print('response.status_code: 👉️', responseJSON.status_code)
 		print('response.headers: 👉️', responseJSON.headers)
-		#result = responseJSON['translations'][0]['text']
-		#print("Translated output: ", result)
-		#await ctx.reply(result)
-		#log(user, server, channel, source_lang, target_lang, translateMe, result)
+		if (response.status_code != 204
+				and 'content-type' in response.headers
+				and 'application/json' in response.headers['content-type']):
+			parsed = response.json()
+			print('✅ parsed response: 👉️', parsed)
+		else:
+			# 👇️ this runs
+			print('⛔️ conditions not met')
+		result = responseJSON['translations'][0]['text']
+		print("Translated output: ", result)
+		await ctx.reply(result)
+		log(user, server, channel, source_lang, target_lang, translateMe, result)
 	except:
 		errMsg = "Translation failed. Error code: {}".format(response.status_code)
 		print("Error: ", errMsg)
