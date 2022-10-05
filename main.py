@@ -11,7 +11,11 @@ bot = commands.Bot(
 	case_insensitive=True  # Commands aren't case-sensitive
 )
 
-bot.author_id = 157610726326927361
+# Set intents - see: https://discordpy.readthedocs.io/en/stable/intents.html
+intents = discord.Intents.default()
+intents.members = True
+
+bot.author_id = 1027106760386949190
 
 def log(user, server, channel, source_lang, target_lang, translateMe, result):
 	with open('./log.csv', 'a', encoding='UTF8', newline='') as f:
