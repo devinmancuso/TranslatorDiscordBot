@@ -64,8 +64,8 @@ async def translate(ctx,*args):
 	try:
 		result = responseJSON['translations'][0]['text']
 		print("Translated output: ", result)
-		await ctx.reply(result)
-		log(user, server, channel, source_lang, target_lang, translateMe, result)
+		#await ctx.reply(result)
+		#log(user, server, channel, source_lang, target_lang, translateMe, result)
 	except:
 		errMsg = "Translation failed. Error code: {}".format(response.status_code)
 		print("Error: ", errMsg)
@@ -75,6 +75,7 @@ async def translate(ctx,*args):
 keep_alive()  # Starts a webserver to be pinged.
 token = os.environ['DISCORD_BOT_SECRET']
 try:
+	print("attempting to run bot")
 	bot.run(token)  # Starts the bot
 except Exception as e:
 	print("Bot unable to start")
