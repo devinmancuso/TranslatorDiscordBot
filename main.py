@@ -2,12 +2,13 @@ import os
 import requests
 import emoji
 import csv
+import discord
 from keep_alive import keep_alive
 from discord.ext import commands
 from datetime import datetime, timedelta
 
 # Set intents - see: https://discordpy.readthedocs.io/en/stable/intents.html
-intents = commands.Intents.default()
+intents = disord.Intents.default()
 intents.members = True
 
 bot = commands.Bot(
