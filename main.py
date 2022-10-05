@@ -6,14 +6,15 @@ from keep_alive import keep_alive
 from discord.ext import commands
 from datetime import datetime, timedelta
 
-bot = commands.Bot(
-	command_prefix="!",  # Change to desired prefix
-	case_insensitive=True  # Commands aren't case-sensitive
-)
-
 # Set intents - see: https://discordpy.readthedocs.io/en/stable/intents.html
 intents = discord.Intents.default()
 intents.members = True
+
+bot = commands.Bot(
+	command_prefix="!",  # Change to desired prefix
+	case_insensitive=True,  # Commands aren't case-sensitive
+	intents=intents		# "Import" the intents
+)
 
 bot.author_id = 1027106760386949190
 
